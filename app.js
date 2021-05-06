@@ -67,3 +67,97 @@ console.log(teen);
 
 //check that .eat() when isHungry == false works as expected
 teen.eat();
+
+console.log('')
+
+// parent class name Vehicle
+
+class Vehicle {
+    constructor (name, color, speed){
+        this._name = name;
+        this._color = color;
+        this._speed = speed;
+    }
+// speed decreas by 3
+    brake(){
+        return this._speed -= 3;
+    }
+    get name (){
+        return this._name
+    }
+    get color (){
+        return this._color
+    }
+    get speed (){
+        return this._speed
+    }
+}
+
+// child class car
+class Car extends Vehicle {
+    constructor(name, color, speed, type){
+        super(name, color, speed);
+        this._type = type
+    }
+
+}
+
+// child class train
+class Train extends Vehicle{
+    constructor(name, color, speed, passengers){
+        super(name, color, speed);
+        this._passengers = passengers
+    }
+    
+    // add passengers 
+    addPassengers(){
+        return this._passengers += 10;
+
+    }
+
+    get passengers (){
+        return this._passengers
+    }
+}
+
+// creat instances for each 
+
+let vehicle = new Vehicle('vehicle1', 'black', 80);
+let car = new Car('car1', 'white', 60, 'toyota');
+let train = new Train ('train1', 'purple', 100, 150);
+
+// print the whole property of all instances
+console.log(vehicle)
+console.log(car)
+console.log(train)
+console.log('')
+// call the the brake method for all of the instances
+vehicle.brake();
+car.brake();
+train.brake();
+
+//print one more time after the method was called 
+console.log(vehicle.speed)
+console.log(car.speed)
+console.log(train.speed)
+console.log('')
+
+// calling the train's addPassengers method three times
+train.addPassengers()
+train.addPassengers()
+train.addPassengers()
+
+//ptint the number of passengers after the addPassengers method was called
+console.log(`The number of passengers is ${train.passengers}`)
+
+// let x = setTimeOut(console.log("hello world"), 1000)
+
+// console.log(x)
+
+function myFunction() {
+    setTimeout(function(){ 
+        prompt("Hello")
+    }, 3000);
+  }
+
+  myFunction();
